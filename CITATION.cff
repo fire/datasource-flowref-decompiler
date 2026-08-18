@@ -1,0 +1,69 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "datasource-flowref-decompiler: a faithful-or-refuse decompiler over flowref"
+abstract: >
+  Point it at a binary and get back compilable C. A control-flow-aware decompiler in
+  Lean 4, built on the flowref xref finder, under a faithful-or-refuse contract: it
+  emits C it can justify against the machine code or it declines, rather than
+  emitting something plausible and leaving the reader to find out which. That
+  contract is the reason the whole thing is in a proof language.
+authors:
+  - family-names: Lee
+    given-names: "K. S. Ernest (iFire)"
+    email: ernest.lee@chibifire.com
+    orcid: "https://orcid.org/0000-0003-4570-1436"
+version: 0.1.0-dev.1
+date-released: "2026-08-17"
+license: MIT
+repository-code: "https://github.com/fire/datasource-flowref-decompiler"
+keywords:
+  - lean4
+  - decompiler
+  - reverse-engineering
+  - formal-methods
+references:
+
+  - type: software
+    title: "flowref: a control-flow-aware cross-reference finder over machine code"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+    url: "https://github.com/fire/flowref"
+    notes: >
+      Pinned at 60510d63. The analysis this decompiler is a consumer of; the xrefs and
+      the control flow it recovers are what the emitted C has to stay faithful to.
+
+  - type: software
+    title: "lean-capstone: Lean 4 bindings to the Capstone disassembly framework"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+    url: "https://github.com/fire/lean-capstone"
+    notes: "Pinned at 3f36304a. Instruction decoding, reached through flowref and directly."
+
+  - type: software
+    title: "lean-duckdb: Lean 4 bindings to DuckDB"
+    url: "https://github.com/v-sekai-multiplayer-fabric/lean-duckdb"
+    notes: >
+      Pinned at 8391e22d. Where recovered facts are put so a large binary can be
+      queried rather than held in memory. The same pairing datasource-duckdb states.
+
+  - type: software
+    title: "lean-slang: Slang shader-language codegen from Lean"
+    url: "https://github.com/V-Sekai-fire/lean-slang"
+    notes: "Pinned at 4bcb798f. The codegen path this repository shares with contract-patch-verify."
+
+  - type: software
+    title: "plausible-witness-dag: witness DAGs over plausible"
+    authors:
+      - family-names: Lee
+        given-names: "K. S. Ernest (iFire)"
+    url: "https://github.com/fire/plausible-witness-dag"
+    notes: "Pinned at 28cf8950. How a refusal says what it could not justify."
+
+  - type: software
+    title: "plausible: property-based testing for Lean 4"
+    authors:
+      - name: "The Lean community"
+    url: "https://github.com/leanprover-community/plausible"
+    notes: "Pinned at a456461b."
